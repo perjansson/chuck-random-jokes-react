@@ -29,7 +29,7 @@ export default class App extends Component {
   }
 
   getRandomJoke() {
-    $.get('http://api.icndb.com/jokes/random', data => {
+    $.get('https://api.icndb.com/jokes/random', data => {
       const newJokes = [
         Object.assign(data.value, {joke: this.htmlEntitiesDecoder.decode(data.value.joke)}),
         ...this.state.jokes
