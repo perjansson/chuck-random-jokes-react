@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import HtmlEntities from 'html-entities';
 import ChuckJokes from './ChuchJokes';
+import Counter from './Counter';
 
 export default class App extends Component {
 
@@ -24,6 +25,7 @@ export default class App extends Component {
     return (
       <div className="jokes-container">
         <ChuckJokes jokes={this.state.jokes}/>
+        <Counter />
       </div>
     );
   }
