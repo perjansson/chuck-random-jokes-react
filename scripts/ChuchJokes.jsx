@@ -3,6 +3,10 @@ import Joke from './Joke';
 
 export default class ChuckJokes extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <div>

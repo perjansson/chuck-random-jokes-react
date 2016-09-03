@@ -3,12 +3,15 @@ import HtmlEntities from 'html-entities';
 import ChuckJokes from './ChuchJokes';
 import Counter from './Counter';
 
+const intervalInSeconds = 10;
+
 export default class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      jokes: []
+      jokes: [],
+      counter: 5
     };
     this.htmlEntitiesDecoder = new HtmlEntities.XmlEntities();
   }
@@ -18,14 +21,14 @@ export default class App extends Component {
 
     setInterval(() => {
       this.getRandomJoke();
-    }, 10000);
+    }, intervalInSeconds * 1000);
   }
 
   render() {
     return (
       <div className="jokes-container">
         <ChuckJokes jokes={this.state.jokes}/>
-        <Counter />
+        <Counter value={this.state.counter} />
       </div>
     );
   }
@@ -36,7 +39,7 @@ export default class App extends Component {
         Object.assign(data.value, {joke: this.htmlEntitiesDecoder.decode(data.value.joke)}),
         ...this.state.jokes
       ];
-      this.setState({jokes: newJokes});
+      this.setState({jokes: newJokes, counter: intervalInSeconds});
     });
   }
 
