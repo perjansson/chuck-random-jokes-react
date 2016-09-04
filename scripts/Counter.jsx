@@ -17,6 +17,9 @@ export default class Counter extends Component {
 
   updateCounter() {
     this.setState({counter: (this.state.counter <= 1) ? 0 : this.state.counter - 1});
+    if (this.state.counter === 0) {
+      this.props.onCountDownFinished();
+    }
   }
 
   componentWillReceiveProps(nextProps) {

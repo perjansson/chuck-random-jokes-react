@@ -1,39 +1,44 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux'
+import { getJoke } from './actions'
 import HtmlEntities from 'html-entities';
 import ChuckJokes from './ChuchJokes';
 import Counter from './Counter';
 
-const intervalInSeconds = 10;
+const intervalInSeconds = 3;
 
+const mapStateToProps = (state) => {
+  return {
+    jokes: state.jokes
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onCountDownFinished: () => {
+      dispatch(getJoke())
+    }
+  }
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
 export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      jokes: [],
-      counter: 5
-    };
     this.htmlEntitiesDecoder = new HtmlEntities.XmlEntities();
-  }
-
-  componentDidMount() {
-    this.getRandomJoke();
-
-    setInterval(() => {
-      this.getRandomJoke();
-    }, intervalInSeconds * 1000);
   }
 
   render() {
     return (
       <div className="jokes-container">
-        <ChuckJokes jokes={this.state.jokes}/>
-        <Counter value={this.state.counter} />
+        <ChuckJokes jokes={this.props.jokes} />
+        <Counter value={intervalInSeconds} onCountDownFinished={this.props.onCountDownFinished} />
       </div>
     );
   }
 
-  getRandomJoke() {
+  /*getRandomJoke() {
     $.get('https://api.icndb.com/jokes/random', data => {
       const newJokes = [
         Object.assign(data.value, {joke: this.htmlEntitiesDecoder.decode(data.value.joke)}),
@@ -41,6 +46,6 @@ export default class App extends Component {
       ];
       this.setState({jokes: newJokes, counter: intervalInSeconds});
     });
-  }
+  }*/
 
 }
