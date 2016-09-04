@@ -4,7 +4,7 @@ export default class Joke extends Component {
 
   render() {
     return (
-      <div className="joke animated fadeInDownBig">
+      <div className="joke animated fadeIn">
         {this.props.joke}
       </div>
     )
