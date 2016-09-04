@@ -34,6 +34,14 @@ class App extends Component {
     this.props.onCountDownFinished();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.themePicker.selectedTheme === 'BLACK') {
+      $('body').addClass('black-theme');
+    } else {
+      $('body').removeClass('black-theme');
+    }
+  }
+
   render() {
     return (
       <div className="jokes-container">

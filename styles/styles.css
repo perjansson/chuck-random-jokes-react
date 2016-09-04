@@ -1,10 +1,13 @@
 body {
-  background: url("../assets/chuck.png");
+  background-image: url("../assets/chuck.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   position: relative;
   font-family: 'Montserrat', sans-serif;
+}
+body.black-theme {
+  background-image: url("../assets/chuck_black.png");
 }
 .jokes-container {
   margin: 20px;
@@ -12,7 +15,6 @@ body {
 }
 .joke {
   background: rgba(255, 255, 255, 0.95);
-  ;
   border-radius: 2px;
   margin: 3rem auto;
   padding: 2rem 1em;
@@ -21,15 +23,25 @@ body {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
   font-size: 17px;
-  color: #bdbdbd;
+  color: #757575;
   -webkit-animation-duration: 4s;
   animation-duration: 4s;
+}
+.black-theme .joke {
+  background: rgba(0, 0, 0, 0.95);
+  color: #424242;
 }
 .joke:first-child {
   color: #424242;
 }
+.black-theme .joke:first-child {
+  color: #fff;
+}
 .joke:nth-child(2) {
   color: #757575;
+}
+.black-theme .joke:nth-child(2) {
+  color: #bdbdbd;
 }
 .joke:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);

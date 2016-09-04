@@ -1,4 +1,4 @@
-const defaultState = { show: false, selectedTheme: 'WHITE' };
+const defaultState = { show: false, selectedTheme: localStorage.getItem('selectedTheme') || 'WHITE' };
 
 const themePicker = (state = defaultState, action) => {
   switch (action.type) {
@@ -7,6 +7,7 @@ const themePicker = (state = defaultState, action) => {
     case 'HIDE_THEME_PICKER':
       return Object.assign({}, state, { show: false });
     case 'SELECT_THEME':
+      localStorage.setItem('selectedTheme', action.theme);
       return Object.assign({}, state, { selectedTheme: action.theme });
     default:
       return state;
