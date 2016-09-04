@@ -28,7 +28,7 @@ export default class Counter extends Component {
 
   render() {
     return (
-      <div className="counter animated bounceInDown">
+      <div className="counter animated zoomIn">
         {this.state.counter}
       </div>
     )
