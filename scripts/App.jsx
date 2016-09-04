@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux'
-import { getJoke } from './actions'
-import HtmlEntities from 'html-entities';
+import { fetchJoke } from './actions'
 import ChuckJokes from './ChuchJokes';
 import Counter from './Counter';
 
-const intervalInSeconds = 3;
+const intervalInSeconds = 10;
 
 const mapStateToProps = (state) => {
   return {
@@ -16,7 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onCountDownFinished: () => {
-      dispatch(getJoke())
+      dispatch(fetchJoke());
     }
   }
 }
@@ -26,7 +25,7 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
-    this.htmlEntitiesDecoder = new HtmlEntities.XmlEntities();
+    this.props.onCountDownFinished();
   }
 
   render() {
@@ -37,15 +36,5 @@ export default class App extends Component {
       </div>
     );
   }
-
-  /*getRandomJoke() {
-    $.get('https://api.icndb.com/jokes/random', data => {
-      const newJokes = [
-        Object.assign(data.value, {joke: this.htmlEntitiesDecoder.decode(data.value.joke)}),
-        ...this.state.jokes
-      ];
-      this.setState({jokes: newJokes, counter: intervalInSeconds});
-    });
-  }*/
 
 }

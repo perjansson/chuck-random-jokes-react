@@ -1,9 +1,7 @@
-const defaultJokes = [{ id: 1, joke: 'Joke 1...' }];
-
-const jokes = (state = defaultJokes, action) => {
+const jokes = (state = [], action) => {
   switch (action.type) {
     case 'RECEIVE_JOKE':
-      const newJokes = [{ id: state.length + 1, joke: `Joke ${state.length + 1}...` },
+      const newJokes = [action.joke,
         ...state
       ];
       return newJokes;
