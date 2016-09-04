@@ -23,7 +23,9 @@ export default class Counter extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({counter: nextProps.value});
+    if (this.state.counter === 0) {
+      this.setState({counter: nextProps.value});
+    }
   }
 
   render() {

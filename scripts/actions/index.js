@@ -20,7 +20,6 @@ function receiveJoke(json) {
 }
 
 export function fetchJoke() {
-
   return function(dispatch) {
     dispatch(requestJoke());
 
@@ -32,5 +31,26 @@ export function fetchJoke() {
       })
       .then(json => dispatch(receiveJoke(json)));
   }
+}
 
+export const SHOW_THEME_PICKER = 'SHOW_THEME_PICKER';
+export const showThemePicker = () => {
+  return {
+    type: SHOW_THEME_PICKER
+  }
+}
+
+export const HIDE_THEME_PICKER = 'HIDE_THEME_PICKER';
+export const hideThemePicker = () => {
+  return {
+    type: HIDE_THEME_PICKER
+  }
+}
+
+export const SELECT_THEME = 'SELECT_THEME';
+export const selectTheme = theme => {
+  return {
+    type: SELECT_THEME,
+    theme
+  }
 }
