@@ -1,13 +1,3 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-export default class Joke extends Component {
-
-  render() {
-    return (
-      <div className="joke animated fadeIn">
-        {this.props.joke}
-      </div>
-    )
-  }
-
-}
+export default props => <div className="joke animated fadeIn">{props.joke}</div>
