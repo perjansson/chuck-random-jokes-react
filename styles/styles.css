@@ -1,5 +1,5 @@
 body {
-  background-image: url("../assets/chuck.png");
+  background-image: url('../assets/chuck.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -7,7 +7,7 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 body.black-theme {
-  background-image: url("../assets/chuck_black.png");
+  background-image: url('../assets/chuck_black.png');
 }
 .jokes-container {
   margin: 20px;
@@ -20,8 +20,9 @@ body.black-theme {
   padding: 2rem 1em;
   position: relative;
   width: 80%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
+    0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   font-size: 17px;
   color: #757575;
   -webkit-animation-duration: 4s;
@@ -44,7 +45,8 @@ body.black-theme {
   color: #bdbdbd;
 }
 .joke:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
 }
 .counter {
   position: absolute;
@@ -53,18 +55,22 @@ body.black-theme {
   right: 10px;
   font-size: 50px;
 }
-.themePicker {
+.theme-picker {
   position: fixed;
   left: 0px;
   bottom: 0px;
   background: rgba(0, 0, 0, 0.75);
-  color: #FFF;
-  cursor: pointer;
+  color: #fff;
   height: 60px;
   width: 100%;
   line-height: 60px;
   font-size: 20px;
 }
+
+.theme-picker .toggle {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 601px) {
   .joke {
     padding: 2.5rem 1.5rem;
@@ -75,7 +81,7 @@ body.black-theme {
     right: 20px;
     font-size: 75px;
   }
-  .themePicker {
+  .theme-picker {
     height: 70px;
     line-height: 70px;
     font-size: 20px;
@@ -90,7 +96,7 @@ body.black-theme {
   .counter {
     font-size: 100px;
   }
-  .themePicker {
+  .theme-picker {
     height: 80px;
     line-height: 80px;
     font-size: 25px;
